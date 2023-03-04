@@ -26,8 +26,7 @@ class Reader:
                         args += line[position]
                         position += 1
                     if position == len(line) and line[position] != ']':
-                        print('ERROR: Expected "]" to close the function, but got nothing.')
-                        break
+                        raise Exception('ERROR: Expected "]" to close the function, but got nothing.')
                     params = args.split(';')
                     tokens.append({ "type": TokenTypes.parameters.name, "value": params })
                     continue
@@ -35,6 +34,5 @@ class Reader:
                     position += 1
                     continue
                 else:
-                    print(f'ERROR: Unexpected identifier "{line[position]}"')
-                    break
+                    raise Exception(f'ERROR: Unexpected identifier "{line[position]}"')
         return tokens
