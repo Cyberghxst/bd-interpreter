@@ -1,11 +1,12 @@
 from enum import Enum
 
 class TokenTypes(Enum):
-    function = 0
-    number = 1
-    operator = 2
-    parameters = 3
-    string = 4
+    closer = 0
+    dollar = 1
+    function_name = 2
+    opener = 3
+    text = 4
+
 
 class Collection:
     functions = ['print', 'lowercase', 'uppercase']
